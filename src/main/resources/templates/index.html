@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    index
+    <hr>
+    <!--判断用户是否是游客身份，如果是游客身份则显示此标签内容-->
+    <shiro:guest>
+        游客访问<a href="login.html">登录</a>
+    </shiro:guest>
+
+    <shiro:user>
+        已登录用户!
+        用户[<shiro:principal/>]欢迎您！
+        当前用户<shiro:hasRole name="admin">超级管理员</shiro:hasRole>
+        <shiro:hasRole name="seller">销售人员</shiro:hasRole>
+        <shiro:hasRole name="ckmgr">仓管人员</shiro:hasRole>
+    </shiro:user>
+
+</body>
+</html>
